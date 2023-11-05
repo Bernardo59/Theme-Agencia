@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Affiche une icone SVG en fonction du nom
+ */
 function agencia_icon ($name) : string{
     $sprite_url = get_template_directory_uri() . '/assets/img/sprite.14d9fd56.svg';
     return <<<HTML
@@ -7,6 +10,4 @@ function agencia_icon ($name) : string{
     <use xlink:href="{$sprite_url}#{$name}"></use>
 </svg>
 HTML;
-
-
 }

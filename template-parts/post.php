@@ -11,12 +11,7 @@
     <?php endif; ?>
     <div class="news__body">
         <header class="news__header">
-            <?php
-            $categories = get_the_category();
-            if (!empty($categories)) :
-            ?>
-                <a class="news__tag" href="<?= get_term_link($categories[0]) ?>"><?= $categories[0]->name ?></a>
-            <?php endif; ?>
+            <?= agencia_listing_categories() ?>
             <a class="news__title" href="<?= the_permalink() ?>"><?php the_title() ?></a>
             <div class="news__date">Publié le <?= the_date() ?> à <?= the_time() ?></div>
         </header>

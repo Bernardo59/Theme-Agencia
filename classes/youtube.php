@@ -29,12 +29,13 @@ class Agencia_Youtube_Widget extends WP_Widget {
         ?>
         <p>
         <?php foreach($this->fields as $field => $value): ?>
+            <?php $value = !empty($instance[$field]) ? esc_attr($instance[$field]) :  ''; ?>
             <label for="<?= $this->get_field_id($field) ?>"><?= $value ?></label>
             <input type="text" 
             class="widefat" 
             id="<?= $this->get_field_name($field) ?>"
             name="<?= $this->get_field_name($field) ?>"
-            value="<?= esc_attr($instance[$field]) ?>">
+            value="<?= $value ?>">
         <?php endforeach; ?>
         </p>
         <?php
