@@ -1,6 +1,7 @@
 <?php
 
-require_once('widgets/social.php');
+require_once(get_template_directory() . '/classes/social.php');
+require_once(get_template_directory() . '/classes/youtube.php');
 
 add_action('after_setup_theme', function() {
     register_nav_menu('header', 'En tête du menu');
@@ -16,6 +17,7 @@ add_action('widgets_init', function () {
         'after_widget' => '</div>'
     ]);
     register_widget(Agencia_Social_Widget::class);
+    register_widget(Agencia_Youtube_Widget::class);
 });
 
 

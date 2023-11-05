@@ -12,7 +12,7 @@
     <?php foreach ($networks as $network => $name): ?>
         <?php if (!empty($instance[$network])) : ?>
             <a href="<?= esc_url($instance[$network]) ?>" title="Nous suivre sur {$name}">
-                <?= agencia_icon_social($network); ?>
+                <?= agencia_icon($network); ?>
             </a>
         <?php endif; ?>   
     <?php endforeach; ?>

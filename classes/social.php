@@ -1,6 +1,8 @@
 <?php
 
-
+/**
+ * Widget social Agencia
+ */
 class Agencia_Social_Widget extends WP_Widget {
 
     public $fields;
@@ -24,7 +26,7 @@ class Agencia_Social_Widget extends WP_Widget {
             echo $args['before_title'] . $title . $args['after_title'];
         }
         // Permet de retrouver le chemin d'accès du template part
-        $template = locate_template('widgets/social.php');
+        $template = locate_template('template-parts/social.php');
         // Si on a un chemin d'accès on inclus le fichier dans Wordpress afin d'avoir accès aux variables
         if (!empty($template)) {
             include $template;

@@ -11,6 +11,7 @@ add_action('after_setup_theme', function () {
     'comment-form', 
     'search-form']);
     add_theme_support('menus');
+    add_theme_support('post-thumbnails');
 }, 10);
 
 
