@@ -7,3 +7,16 @@ Requires at least: 5.3
 Requires PHP: 7.0
 
 */
+
+.wp-block-buttons .wp-block-button{
+    margin-top: 15px!important;
+} 
+
+.news__categories .news__tag {
+    margin-right: 10px;
+}
+
+.comment .comment__body .reply .comment-reply-link {
+    text-decoration:underline;
+    color: #FE6748;
+}
