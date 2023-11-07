@@ -28,7 +28,6 @@ class AgenciaCommentWalker extends Walker_Comment
             $moderation_note = __('Your comment is awaiting moderation. This is a preview; your comment will be visible after it has been approved.');
         }
 ?>
-        <<?php echo $tag; ?> class="comment__list">
             <div class="comment">
 
                 <?php

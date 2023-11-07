@@ -18,7 +18,40 @@ add_action('customize_register', function (WP_Customize_Manager $manager){
 
 add_filter('comment_form_default_fields', function($fields) {
     unset($fields['url']);
-    $fields['author'] = '<p class="comment-form-author"><label for="author">Prénom <span class="required">*</span></label><input type="text" id="author" name="author" require="required" placeholder="Name"></p>';
+    $fields['author'] = <<<HTML
+    <div class="form-group">
+      <input type="text" id="author" name="author" class="form-control" required>
+      <label for="author">Pseudo</label>
+    </div>
+HTML;
+    $fields['email'] = <<<HTML
+    <div class="form-group">
+      <input type="text" id="email" name="email" class="form-control">
+      <label for="email">Email</label>
+    </div>
+HTML;
     return $fields;
+});
 
+add_filter('comment_form_defaults', function($fields) {
+    $fields['comment_field'] = <<<HTML
+        <textarea id="comment" class="form-control full" name="comment" required="" placeholder="Commentaire"></textarea>  
+HTML;
+    return $fields;
+});
+
+add_filter('comment_form_fields', function($fields) {
+    $newFields = [];
+    foreach($fields as $key => $value){
+        if($key !== 'comment') {
+            if ($key === 'cookies') {
+                $newFields['comment'] = $fields['comment'];
+            }
+            $newFields[$key] = $value;        
+        }
+    }
+    if (!isset($newFields['comment'])) {
+        $newFields['comment'] = $fields['comment'];
+    }
+    return $newFields;
 });

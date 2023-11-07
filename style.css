@@ -20,3 +20,31 @@ Requires PHP: 7.0
     text-decoration:underline;
     color: #FE6748;
 }
+
+.form-2column .comment-notes,
+.form-2column .comment-form-cookies-consent,
+.form-2column .form-submit,
+.form-2column .logged-in-as {
+    grid-column: 1/-1;
+}
+
+.form-submit input:hover {
+    cursor: pointer;
+}
+
+.form-2column .logged-in-as a {
+    color: #FE6748;
+}
+
+
+.current_page_parent {
+    color: #FE6748;
+}
+
+.comment .comment {
+    margin-top: 1em;
+    margin-left: 50px;
+}
+.comments .comments__list .comment {
+    grid-template-columns: 1fr!important;
+}
