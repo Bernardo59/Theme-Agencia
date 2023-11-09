@@ -48,3 +48,13 @@ Requires PHP: 7.0
 .comments .comments__list .comment {
     grid-template-columns: 1fr!important;
 }
+
+.carousel .carousel__next, .carousel__prev {
+    background: url(../agencia/assets/img/carousel-arrow.3f214255.svg) rgba(255, 255, 255, 0.2) center center no-repeat!important;
+    background-size: 23px 13px!important;
+
+}
+
+.bien__photos {
+    border-radius: 10px;
+}

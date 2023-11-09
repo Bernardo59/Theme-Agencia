@@ -12,6 +12,7 @@ add_action('after_setup_theme', function () {
     'search-form']);
     add_theme_support('menus');
     add_theme_support('post-thumbnails');
+    add_image_size('single-property', 777, 444, true);
 }, 10);
 
 

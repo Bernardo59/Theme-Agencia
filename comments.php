@@ -23,7 +23,6 @@ require_once('inc/walkers/CommentWalker.php');
         </div>
 
         <?php if (comments_open()) : ?>
-            <div class="comments__title">Laissez un commentaire</div>
 
             <?php comment_form([
                 'title_reply' => '',

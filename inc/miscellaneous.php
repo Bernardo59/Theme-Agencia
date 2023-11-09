@@ -11,3 +11,4 @@ function agencia_icon ($name) : string{
 </svg>
 HTML;
 }
+
