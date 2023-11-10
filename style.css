@@ -58,3 +58,7 @@ Requires PHP: 7.0
 .bien__photos {
     border-radius: 10px;
 }
+
+.pagination .btn:hover {
+    color: white;
+}

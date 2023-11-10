@@ -13,6 +13,8 @@ add_action('after_setup_theme', function () {
     add_theme_support('menus');
     add_theme_support('post-thumbnails');
     add_image_size('single-property', 777, 444, true);
+    add_image_size('archive-property', 385, 220, true);
+    add_image_size('archive-property-large', 802, 220, true);
 }, 10);
 
 
