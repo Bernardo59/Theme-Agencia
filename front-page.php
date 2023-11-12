@@ -7,10 +7,10 @@
     <section>
       <div class="container">
         <div class="search-form">
-          <h1 class="search-form__title">Agence immo Montpellier</h1>
-          <p>Retrouver tous nos biens sur le secteur de <strong>Montpellier</strong></p>
+          <h1 class="search-form__title"><?= the_title() ?></h1>
+          <p><?php the_content() ?></p>
           <hr>
-          <form action="listing.html" class="search-form__form">
+          <form action="" class="search-form__form">
             <div class="search-form__checkbox">
               <div class="form-check form-check-inline">
                 <input class="form-check-input" checked="" type="radio" name="type" id="buy" value="buy">
@@ -45,15 +45,18 @@
         </div>
 
       </div>
+
+      <?php if($property = get_field('highlighted_property')): ?>
       <div class="highlighted highlighted--home">
-        <img src="https://picsum.photos/id/234/790/728.jpg" alt="">
+        <?= get_the_post_thumbnail($property, 'property-thumbnail-home') ?>
         <div class="highlighted__body">
-          <div class="highlighted__title">Maison 4 pièce(s)</div>
-          <div class="highlighted__price">178 200€</div>
-          <div class="highlighted__location">34 000 MONTPELLIER</div>
-          <div class="highlighted__space">80m²</div>
+          <a class="highlighted__title" href="<?= the_permalink($property) ?>"><?= get_the_title($property) ?></a>
+          <div class="highlighted__price"><?= number_format_i18n(get_field('price', $property)) ?><?= agence_rent_buy($property) ?></div>
+          <div class="highlighted__location"><?= agence_city($property) ?></div>
+          <div class="highlighted__space"><?php the_field('surface', $property) ?>m2</div>
         </div>
       </div>
+      <? endif; ?>
     </section>
 
     <!-- Feature properties -->

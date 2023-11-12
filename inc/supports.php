@@ -15,6 +15,7 @@ add_action('after_setup_theme', function () {
     add_image_size('single-property', 777, 444, true);
     add_image_size('archive-property', 385, 220, true);
     add_image_size('archive-property-large', 802, 220, true);
+    add_image_size('property-thumbnail-home', 790, 728, true);
 }, 10);
 
 

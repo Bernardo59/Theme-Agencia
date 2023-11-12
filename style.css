@@ -74,3 +74,7 @@ select.form-control + label::before {
 .page-title, .bien__title, .quote__title, .newsletter__title, .news-single__title, .push-news__title, .push-properties__title, .search-form__title { 
     font-size: 55px!important;
 }
+
+.highlighted__title, .highlighted__price {
+    font-size: 1.2em!important;
+}
