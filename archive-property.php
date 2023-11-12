@@ -71,17 +71,9 @@ $currentRoom = get_query_var('room');
 
     <?php $count = 0 ?>
     <?php while (have_posts()) : the_post() ?>
-        <?php $cities = get_terms(['taxonomy' => 'property_city']) ?>
-        <a class="property <?= $count === 7 ? 'property--large' : '' ?>" href="<?= the_permalink() ?>" title="<?= the_title() ?>">
-            <div class="property__image">
-                <?php the_post_thumbnail($count === 7 ? 'archive-property-large' : 'archive-property') ?>
-            </div>
-            <div class="property__body">
-                <div class="property__location"><?= agence_city() ?></div>
-                <h3 class="property__title"><?= the_title() ?></h3>
-                <div class="property__price"><?= number_format_i18n(get_field('price')) ?> <?= agence_rent_buy() ?></div>
-            </div>
-        </a>
+        <!-- set_query_var permet de transmettre une donnée dans le get template part -->
+        <?php set_query_var('property-large', $count === 7); ?> 
+        <?php get_template_part('template-parts/property') ?>
         <?php $count++ ?>
     <?php endwhile; ?>
 
