@@ -12,3 +12,26 @@ function agencia_icon ($name) : string{
 HTML;
 }
 
+/**
+ * Affiche sur la page d'archive property le type de iben
+ */
+function agencia_showType (string $currentType): string {
+    if ($currentType == 'appartement') {
+        return 'tous nos appartements';
+    } elseif($currentType === 'maison') {
+        return 'tous nos maisons';
+    } else {
+        return'tous nos biens';
+    };
+}
+
+/**
+ * Affiche sur la page d'archive property la ville
+ */
+function agencia_showCity (string $currentCity): string {
+    if ($currentCity == null) {
+        return 'Montpellier';
+    } else {
+        return ucfirst($currentCity);
+    }
+};

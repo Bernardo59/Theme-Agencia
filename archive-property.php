@@ -1,38 +1,67 @@
 <?php get_header() ?>
 
+<?php 
+
+$isRent = get_query_var('property_category') === 'rent';
+$cities = get_terms([
+    'taxonomy' => 'property_city'
+]);
+$types = get_terms([
+    'taxonomy' => 'property_type'
+]);
+$currentCity = get_query_var('city');
+$currentPrice = get_query_var('price');
+$currentType = get_query_var('type');
+$currentRoom = get_query_var('room');
+?>
+
 <div class="container page-properties">
     <div class="search-form">
-        <h1 class="search-form__title">Agence immo Montpellier</h1>
-        <p>Retrouver tous nos biens sur le secteur de <strong>Montpellier</strong></p>
+        <h1 class="search-form__title">
+            <?= 'Tous nos biens' ?>
+            <?php if($isRent): ?>
+                <?= 'à louer' ?>
+            <?php else: ?>
+                <?= 'à vendre' ?>
+            <?php endif;?>
+        </h1>
+        <p>Retrouver <?= agencia_showType($currentType) ?> sur le secteur de <strong><?= agencia_showCity($currentCity) ?></strong></p>
         <hr>
-        <form action="listing.html" class="search-form__form">
+        <form action="" class="search-form__form">
             <div class="search-form__checkbox">
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" checked="" type="radio" name="type" id="buy" value="buy">
+                    <input class="form-check-input" <?= $isRent ? '' : 'checked=""'?> type="radio" name="property_category" id="buy" value="buy">
                     <label class="form-check-label" for="buy">Acheter</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="type" id="rent" value="rent">
+                    <input class="form-check-input" <?= $isRent ? 'checked=""' : ''?>type="radio" name="property_category" id="rent" value="rent">
                     <label class="form-check-label" for="rent">Louer</label>
                 </div>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control" id="city" placeholder="Montpellier">
+                <select name="city" class="form-control" id="city">
+                <option value="">Toutes les villes</option>
+                    <?php foreach($cities as $city): ?>
+                        <option value="<?= $city->slug ?>"<?= selected($city->slug, $currentCity) ?> ><?= $city->name ?></option>
+                    <?php endforeach; ?>
+                </select>
                 <label for="city">Ville</label>
             </div>
             <div class="form-group">
-                <input type="number" class="form-control" id="budget" placeholder="100 000 €">
-                <label for="budget">Prix max</label>
+                <input name="price" type="number" class="form-control" id="budget" placeholder="<?= $isRent ? '500€/mois' : '150000€'?>" value="<?= esc_attr($currentPrice) ?>">
+                <label for="budget"><?= $isRent ? 'Loyer' : 'Budget'?></label>
             </div>
             <div class="form-group">
-                <select name="kind" id="kind" class="form-control">
-                    <option value="flat">Appartement</option>
-                    <option value="villa">Villa</option>
+                <select name="type" id="type" class="form-control">
+                    <option value="">Tous nos types</option>
+                    <?php foreach($types as $type): ?>
+                        <option value="<?= $type->slug ?>"<?= selected($type->slug, $currentType) ?> ><?= $type->name ?></option>
+                    <?php endforeach; ?>
                 </select>
-                <label for="kind">Type</label>
+                <label for="type">Type</label>
             </div>
             <div class="form-group">
-                <input type="number" class="form-control" id="rooms" placeholder="4">
+                <input name="room" type="number" class="form-control" id="rooms" placeholder="4" value="<?= $currentRoom ?>">
                 <label for="rooms">Pièces</label>
             </div>
             <button type="submit" class="btn btn-filled">Rechercher</button>
@@ -48,9 +77,9 @@
                 <?php the_post_thumbnail($count === 7 ? 'archive-property-large' : 'archive-property') ?>
             </div>
             <div class="property__body">
-                <div class="property__location"><?= $cities[0]->name ?> <?= agence_city(get_post()) ?></div>
+                <div class="property__location"><?= agence_city() ?></div>
                 <h3 class="property__title"><?= the_title() ?></h3>
-                <div class="property__price"><?= get_field('price') ?> <?= agence_rent_buy() ?></div>
+                <div class="property__price"><?= number_format_i18n(get_field('price')) ?> <?= agence_rent_buy() ?></div>
             </div>
         </a>
         <?php $count++ ?>

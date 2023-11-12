@@ -62,3 +62,15 @@ Requires PHP: 7.0
 .pagination .btn:hover {
     color: white;
 }
+
+/* .search-form__form .form-group + label::before{
+    background: url(../agencia/assets/img/select.70f40b3b.svg)!important;
+} */
+
+select.form-control + label::before {
+    background: url(../agencia/assets/img/select.70f40b3b.svg)!important;
+}
+
+.page-title, .bien__title, .quote__title, .newsletter__title, .news-single__title, .push-news__title, .push-properties__title, .search-form__title { 
+    font-size: 55px!important;
+}

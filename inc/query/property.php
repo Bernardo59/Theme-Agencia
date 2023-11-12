@@ -7,5 +7,5 @@ add_action('pre_get_posts', function (WP_Query $query) : void {
         !is_post_type_archive('property')) {
             return;
     }  
-    $query->set('posts_per_page', 2);
+    $query->set('posts_per_page', get_theme_mod('posts_per_page'));
 });

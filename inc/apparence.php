@@ -1,18 +1,32 @@
 <?
 defined('ABSPATH') or die();
 add_action('customize_register', function (WP_Customize_Manager $manager){
-    $manager->add_setting('logo', [
-        'sanitize_callback' => 'esc_url_raw',
-    ]);
 
     $manager->add_section('agencia_apparence', [
         'title' => 'Apparence du thème'
+    ]);
+
+    $manager->add_setting('logo', [
+        'sanitize_callback' => 'esc_url_raw',
     ]);
 
     $manager->add_control(new WP_Customize_Image_Control($manager, 'logo', [
         'label' => 'Logo du site',
         'section' => 'agencia_apparence'
     ]));
+
+    $manager->add_section('agencia_options', [
+        'title' => 'Options'
+    ]);
+
+    $manager->add_setting('posts_per_page');
+
+    $manager->add_control(new WP_Customize_Control($manager, 'posts_per_page', [
+        'label' => 'Nombre de bien à afficher dans la page',
+        'type' => 'number',
+        'section' => 'agencia_options'
+    ]));
+
 });
 
 
