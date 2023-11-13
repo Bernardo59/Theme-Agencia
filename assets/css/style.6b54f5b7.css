@@ -137,6 +137,7 @@ strong {
   margin-top: 32px;
 }
 
+
 @font-face {
   font-family: "SF Pro Text"!important;
   font-weight: 300!important;
@@ -168,7 +169,6 @@ strong {
   font-display: swap!important;
   src: url("../fonts/fonts/Gotham-Bold.0ebdb4cb.woff2") format("woff2"), url("../fonts/fonts/Gotham-Bold.6cbb4116.woff") format("woff"), url("../fonts/fonts/Gotham-Bold.9d66ffdd.ttf") format("truetype"), url("../fonts/fonts/Gotham-Bold.0787f1c4.svg#Gotham") format("svg"), url("../fonts/fonts/Gotham-Bold.9be64f27.eot?") format("eot")!important;
 }
-
 hr {
   height: 1px;
   background-color: #F4ECEC;
@@ -306,6 +306,10 @@ body {
   margin-right: auto;
 }
 
+.hidden {
+  display: none;
+}
+
 /**
 CAROUSEL
  */
@@ -332,7 +336,7 @@ CAROUSEL
   position: absolute;
   width: 48px;
   height: 48px;
-  background: url(carousel-arrow.3f214255.svg) rgba(255, 255, 255, 0.2) center center no-repeat;
+  background: url(carousel-arrow.12d5768c.svg) rgba(255, 255, 255, 0.2) center center no-repeat;
   background-size: 23px 13px;
   border-radius: 50%;
   top: 50%;
@@ -660,7 +664,7 @@ select.form-control + label::before {
   position: absolute;
   top: 50%;
   right: 16px;
-  background: url(select.70f40b3b.svg);
+  background: url(select.c506e527.svg);
   width: 12px;
   height: 8px;
   margin-top: -2px;
@@ -1198,9 +1202,6 @@ a.property:hover .property__title {
   grid-template-columns: 1fr;
 }
 
-.news_categories {
-  display: inline-block!important;
-}
 .news__tag {
   font-weight: bold;
   font-size: 16px;
@@ -1866,4 +1867,4 @@ a.property:hover .property__title {
   margin-bottom: 80px;
 }
 
-/*# sourceMappingURL=style.e2e1a33c.css.map */
+/*# sourceMappingURL=style.6b54f5b7.css.map */

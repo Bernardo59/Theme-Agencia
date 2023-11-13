@@ -16,6 +16,8 @@ add_action('after_setup_theme', function () {
     add_image_size('archive-property', 385, 220, true);
     add_image_size('archive-property-large', 802, 220, true);
     add_image_size('property-thumbnail-home', 790, 728, true);
+    add_image_size('post-thumbnail-home', 910, 910, true);
+    add_image_size('post-thumbnail-overlay-home', 912, 318, true);
 }, 10);
 
 
