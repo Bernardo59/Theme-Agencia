@@ -11,9 +11,13 @@
             <div class="bien__location"><?= $cities[0]->name ?> <?= agence_city(get_post()) ?></div>
             <div class="bien__price"><?= get_field('price') ?> <?= agence_rent_buy() ?></div>
           </div>
-          <div class="bien__actions">
-            <a href="<?= esc_url(home_url('/contact')) ?>"><button class="btn btn-filled">Contacter l'agence</button></a>
-            <a href="<?= esc_url(home_url('/contact')) ?>"><button class="btn">Appeler</button></a>
+          <div class="bien__actions" id="bien-actions">
+            <button class="btn btn-filled" id="bien-contact">Contacter l'agence</button>
+            <button class="btn">Appeler</button>
+          </div>
+
+          <div class="hidden" id="bien-form">
+            <?= do_shortcode('[contact-form-7 id="4fef589" title="" html_class="bien-form form-2column"]'); ?>
           </div>
 
         </div>

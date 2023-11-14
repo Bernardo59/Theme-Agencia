@@ -80,4 +80,6 @@ select.form-control + label::before {
 }
 
 
-
+.wpcf7-textarea textarea{
+    resize: none!important;
+}
